@@ -2,15 +2,23 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
  
  	<!-- Nome da Aplicação -->
-	<display-name>adamantium</display-name>
+	<display-name>Gerenciador de Cursos On-line</display-name>
 	
-	<!-- Estágio do Projeto -->
+	<!-- Estágio do Projeto - "Development" ou "Production" - Ideal deixar como development enquanto se está desenvolvendo-->
 	<context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
     
     <!-- Tema do PrimeFaces -->
+     <!-- "afterdark", "afternoon", "afterwork", "aristo", "black-tie", "blitzer", 
+     "bluesky", "casablanca", "cruze", "cupertino", "dark-hive", "dot-luv", "eggplant",
+     "excite-bike", "flick", "glass-x", "home", "hot-sneaks", "humanity", "le-frog",
+     "midnight", "mint-choc", "overcast", "pepper-grinder", "redmond", "rocket", "sam",
+     "smoothness", "south-street", "start", "sunny", "swanky-purse", "trontastic", 
+     "twitter bootstrap", "ui-darkness", "ui-lightness", "vader" -->
+     
+     <!-- Só é possivel usar esses temas se baixarmos ele no nosso pom.xml -->
 	<context-param>
 		<param-name>primefaces.THEME</param-name>
 		<param-value>adamantium</param-value>
@@ -22,14 +30,19 @@
   
     
     <!-- Configuração do JSF -->
+    <!-- Faces Servlet é o controlador da nossa aplicação -->
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <!-- Com o faces servlet estou dizendo que todo arquivo *.xhtml será processado pelo faces servlet 
+    		caso eu fosse trabalhar com arquivo jsf poderia incrementar o faces servelet, mas nesse caso 
+    		não estaremos trabalhando com jsf no momento -->
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
+        <!--<url-pattern>*.jsf</url-pattern> -->
     </servlet-mapping>
     
     <mime-mapping>
